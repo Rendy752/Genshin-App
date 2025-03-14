@@ -22,7 +22,7 @@ class ApiService {
     final response = await http.get(Uri.parse('$baseUrl/characters/$id'));
 
     if (response.statusCode == 200) {
-      Character character = characterFromJson(response.body);
+      Character character = Character.fromRawJson(response.body);
       print('character: ${character}');
       return character;
     } else {

@@ -1,19 +1,19 @@
 import 'dart:convert';
 
-class Level {
+class Upgrade {
   String name;
-  int value;
+  String value;
 
-  Level({
+  Upgrade({
     required this.name,
     required this.value,
   });
 
-  factory Level.fromRawJson(String str) => Level.fromJson(json.decode(str));
+  factory Upgrade.fromRawJson(String str) => Upgrade.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory Level.fromJson(Map<String, dynamic> json) => Level(
+  factory Upgrade.fromJson(Map<String, dynamic> json) => Upgrade(
         name: json["name"],
         value: json["value"],
       );

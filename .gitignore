@@ -9,6 +9,7 @@
 .history
 .svn/
 migrate_working_dir/
+Thumbs.db
 
 # IntelliJ related
 *.iml
@@ -41,3 +42,20 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+android/.gradle/
+android/build/
+android/app/build/
+
+#iOS Specific
+/ios/Pods/
+/ios/.symlinks/
+/ios/build/
+*.xcworkspace/
+xcuserdata/
+
+#Env and key files
+*.env
+*.keystore
+*.p8
+*.p12
+*.pem

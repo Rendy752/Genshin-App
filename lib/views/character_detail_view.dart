@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:genshin_app/controllers/character_controller.dart';
+import 'package:genshin_app/models/enum.dart';
 import 'package:genshin_app/services/api_service.dart';
 import 'package:get/get.dart';
 
@@ -29,8 +30,8 @@ class CharacterDetailView extends StatelessWidget {
                     width: 200,
                   )),
                   Text('Title : ${character?.title}'),
-                  Text('Vision : ${character?.vision}'),
-                  Text('Weapon : ${character?.weapon}'),
+                  Text('Vision : ${visionValues.reverse[character?.vision]}'),
+                  Text('Weapon : ${weaponValues.reverse[character?.weapon]}'),
                   Text('Rarity : ${character?.rarity}'),
                   Text('Constellation : ${character?.constellation}'),
                   Text('Description : ${character?.description}')

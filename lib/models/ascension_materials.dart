@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:genshin_app/models/level.dart';
 
 class AscensionMaterials {
@@ -16,6 +18,11 @@ class AscensionMaterials {
     required this.level70,
     required this.level80,
   });
+
+  factory AscensionMaterials.fromRawJson(String str) =>
+      AscensionMaterials.fromJson(json.decode(str));
+
+  String toRawJson() => json.encode(toJson());
 
   factory AscensionMaterials.fromJson(Map<String, dynamic> json) =>
       AscensionMaterials(
