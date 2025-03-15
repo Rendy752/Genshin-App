@@ -4,7 +4,7 @@ import 'package:genshin_app/models/ascension_materials.dart';
 import 'package:genshin_app/models/constellation.dart';
 import 'package:genshin_app/models/enum.dart';
 import 'package:genshin_app/models/skill_talent.dart';
-import 'package:genshin_app/outfit.dart';
+import 'package:genshin_app/models/outfit.dart';
 
 class Character {
   String name;
