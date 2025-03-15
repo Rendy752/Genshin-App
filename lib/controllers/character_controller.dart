@@ -3,10 +3,13 @@ import 'package:genshin_app/services/api_service.dart';
 import 'package:get/get.dart';
 
 class CharacterController extends GetxController {
-  var isLoading = true.obs;
-  var characterList = <String>[].obs;
-  var selectedCharacter = Rxn<Character>();
   final ApiService _apiService = ApiService();
+  var isLoading = true.obs;
+
+  var characterList = <String>[].obs;
+  var filteredCharacters = <String>[].obs;
+
+  var selectedCharacter = Rxn<Character>();
 
   @override
   void onInit() {
@@ -19,6 +22,7 @@ class CharacterController extends GetxController {
       isLoading(true);
       var characters = await _apiService.fetchCharacters();
       characterList.assignAll(characters);
+      filteredCharacters.assignAll(characters);
     } catch (e) {
       Get.snackbar('Error', 'Failed to fetch characters: $e');
     } finally {
@@ -35,5 +39,13 @@ class CharacterController extends GetxController {
     } finally {
       isLoading(false);
     }
+  }
+
+  void searchCharacters(String keyword) {
+    List<String> tempFilteredList = characterList.where((character) {
+      return character.toLowerCase().contains(keyword.toLowerCase());
+    }).toList();
+
+    filteredCharacters.assignAll(tempFilteredList);
   }
 }
